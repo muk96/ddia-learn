@@ -1,0 +1,22 @@
+# --- Database Data (CRITICAL) ---
+# This ensures you don't upload the actual DB contents to GitHub
+**/data/
+*.db
+*.sqlite
+
+# --- Environment & Secrets ---
+.env
+.venv/
+env/
+venv/
+__pycache__/
+
+# --- OS & IDE Junk ---
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# --- Build Artifacts ---
+bin/
+dist/
