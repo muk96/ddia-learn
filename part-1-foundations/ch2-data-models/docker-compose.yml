@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  # The Relational Model (Chapter 2, Section 1)
+  relational-db:
+    image: postgres:15
+    container_name: ddia_postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: career_network
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+
+  # The Document Model (Chapter 2, Section 2)
+  document-db:
+    image: mongo:latest
+    container_name: ddia_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo_data:/data/db
+
+  # The Graph Model (Chapter 2, Section 3)
+  graph-db:
+    image: neo4j:latest
+    container_name: ddia_neo4j
+    environment:
+      NEO4J_AUTH: neo4j/password
+    ports:
+      - "7474:7474" # Browser UI
+      - "7687:7687" # Bolt Protocol
+    volumes:
+      - ./neo4j_data:/data
